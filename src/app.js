@@ -12,33 +12,23 @@ const rightButton = document.getElementById('right-button');
 let oldItems = [];
 let newItems = [];
 let turns = 0;
-const turnTotal = 5;
+const turnTotal = 25;
 
 renderItems();
 
-leftButton.addEventListener('click', () => {
-    let code = leftButton.value;
-    store.selectProduct(code);
-    renderItems();
-    turns++;
-    buttonDisableCheck(turns, turnTotal);
-});
+leftButton.addEventListener('click', handleUserChoice); 
 
-centerButton.addEventListener('click', () => {
-    let code = centerButton.value;
-    store.selectProduct(code);
-    renderItems();
-    turns++;
-    buttonDisableCheck(turns, turnTotal);
-});
+centerButton.addEventListener('click', handleUserChoice);
 
-rightButton.addEventListener('click', () => {
-    let code = rightButton.value;
+rightButton.addEventListener('click', handleUserChoice);
+
+function handleUserChoice(event) {
+    let code = event.currentTarget.value;
     store.selectProduct(code);
     renderItems();
     turns++;
     buttonDisableCheck(turns, turnTotal);
-});
+}
 
 function chooseNewItems(oldItems) {
     const masterList = new Listings(products);

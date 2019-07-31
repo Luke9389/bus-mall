@@ -52,13 +52,13 @@ h1 {
     align-items: center;
 }
 
-button {
+#button-section>button {
     margin: 0 1vw 0 1vw;
     height: 80%;
     border: 4px solid black;
 }
 
-button:hover {
+#button-section>button:hover {
     border: 4px solid orange;
     cursor: pointer;
 }
@@ -67,8 +67,4 @@ button>img {
     object-fit: contain;
     height: 100%;
     width: 100%;
-}
-
-#results{
-    display: none;
 }

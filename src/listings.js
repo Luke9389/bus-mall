@@ -21,7 +21,7 @@ class Listings {
     }
 
     getNRandomItems(n) {
-        let list = this.list.sort(() => Math.random() - 0.5);
+        let list = this.shuffleList();
         const newList = list.slice(0, n);
         return newList;
     }
