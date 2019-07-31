@@ -13,27 +13,33 @@ const rightButton = document.getElementById('right-button');
 let oldItems = [];
 let newItems = [];
 let turns = 0;
+const turnTotal = 5;
+
+renderItems();
 
 leftButton.addEventListener('click', () => {
-    store.selectProduct(imageLeft.src);
-    console.log(imageLeft.src);
+    let code = leftButton.value;
+    store.selectProduct(code);
     renderItems();
     turns++;
+    buttonDisableCheck(turns, turnTotal);
 });
 centerButton.addEventListener('click', () => {
-    store.selectProduct(imageCenter.src);
-    console.log(imageCenter.src);
+    let code = centerButton.value;
+    store.selectProduct(code);
     renderItems();
     turns++;
+    buttonDisableCheck(turns, turnTotal);
 });
 rightButton.addEventListener('click', () => {
-    store.selectProduct(imageRight.src);
-    console.log(imageRight.src);
+    let code = rightButton.value;
+    store.selectProduct(code);
     renderItems();
     turns++;
+    buttonDisableCheck(turns, turnTotal);
 });
 
-function chooseNewItems(oldItems){
+function chooseNewItems(oldItems) {
     const masterList = new Listings(products);
     masterList.removeItems(oldItems);
     newItems = masterList.getNRandomItems(3);
@@ -41,17 +47,27 @@ function chooseNewItems(oldItems){
 }
 
 function displayChosenItems(chosenItems) {
-    imageLeft.src = chosenItems[0].image
+    imageLeft.src = chosenItems[0].image;
+    leftButton.value = chosenItems[0].id;
     imageCenter.src = chosenItems[1].image
+    centerButton.value = chosenItems[1].id;
     imageRight.src = chosenItems[2].image
+    rightButton.value = chosenItems[2].id;
 }
 
-function renderItems(){
+function renderItems() {
     newItems = chooseNewItems(oldItems);
     displayChosenItems(newItems);
     oldItems = newItems;
 }
 
+function buttonDisableCheck(turns, turnTotal) {
+    if (turns === turnTotal) {
+        leftButton.disabled = true;
+        centerButton.disabled = true;
+        rightButton.disabled = true;
+    }
 
+}
 
 

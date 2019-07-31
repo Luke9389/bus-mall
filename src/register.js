@@ -1,8 +1,7 @@
-
-export function findProduct(array, img) {
+export function findProduct(array, code) {
     for(let i = 0; i < array.length; i++) {
         let element = array[i];
-        if(element.img === img) {
+        if(element.code === code) {
             return element;
         }
     }

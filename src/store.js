@@ -14,28 +14,29 @@ const store = {
         return item;
     },
     getRoundHistory() {
-        let products = store.get('round-history');
+        let history = store.get('round-history');
 
-        if (!products) {
-            products = [];
+        if (!history) {
+            history = [];
         }
-        return products;
+        return history;
     },
-    selectProduct(img) {
+    selectProduct(code) {
         const roundHistory = store.getRoundHistory();
-        const product = findProduct(roundHistory, img);
+        const product = findProduct(roundHistory, code);
 
         if (product) {
             product.quantity += 1;
         } else {
             const order = {
-                img: img,
+                code: code,
                 quantity: 1,
             };
             roundHistory.push(order);
         }
         store.save('round-history', roundHistory);
     },
+
     
 }
 
