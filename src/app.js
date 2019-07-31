@@ -5,7 +5,6 @@ import store from './store.js';
 const imageLeft = document.getElementById('image-left');
 const imageCenter = document.getElementById('image-center');
 const imageRight = document.getElementById('image-right');
-
 const leftButton = document.getElementById('left-button');
 const centerButton = document.getElementById('center-button');
 const rightButton = document.getElementById('right-button');
@@ -24,6 +23,7 @@ leftButton.addEventListener('click', () => {
     turns++;
     buttonDisableCheck(turns, turnTotal);
 });
+
 centerButton.addEventListener('click', () => {
     let code = centerButton.value;
     store.selectProduct(code);
@@ -31,6 +31,7 @@ centerButton.addEventListener('click', () => {
     turns++;
     buttonDisableCheck(turns, turnTotal);
 });
+
 rightButton.addEventListener('click', () => {
     let code = rightButton.value;
     store.selectProduct(code);
@@ -67,7 +68,6 @@ function buttonDisableCheck(turns, turnTotal) {
         centerButton.disabled = true;
         rightButton.disabled = true;
     }
-
 }
 
 
