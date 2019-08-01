@@ -1,4 +1,5 @@
 import { getRandomInt } from './util.js';
+import store from './store.js';
 
 class Listings {
     constructor(products) {

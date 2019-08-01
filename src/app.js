@@ -12,7 +12,9 @@ const rightButton = document.getElementById('right-button');
 let oldItems = [];
 let newItems = [];
 let turns = 0;
-const turnTotal = 25;
+const turnTotal = 8;
+
+store.clearRoundData();
 
 renderItems();
 
@@ -23,8 +25,8 @@ centerButton.addEventListener('click', handleUserChoice);
 rightButton.addEventListener('click', handleUserChoice);
 
 function handleUserChoice(event) {
-    let code = event.currentTarget.value;
-    store.selectProduct(code);
+    let id = event.currentTarget.value;
+    store.selectProduct(id);
     renderItems();
     turns++;
     buttonDisableCheck(turns, turnTotal);
@@ -34,6 +36,9 @@ function chooseNewItems(oldItems) {
     const masterList = new Listings(products);
     masterList.removeItems(oldItems);
     newItems = masterList.getNRandomItems(3);
+    newItems.forEach(item => {
+        store.displayProduct(item.id);
+    });
     return newItems;
 }
 
@@ -57,6 +62,9 @@ function buttonDisableCheck(turns, turnTotal) {
         leftButton.disabled = true;
         centerButton.disabled = true;
         rightButton.disabled = true;
+        store.recordAllTimeData();
+        store.recordDisplays();
+        return;
     }
 }
 
