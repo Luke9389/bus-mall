@@ -12,7 +12,7 @@ const rightButton = document.getElementById('right-button');
 let oldItems = [];
 let newItems = [];
 let turns = 0;
-const turnTotal = 8;
+const turnTotal = 25;
 
 store.clearRoundData();
 
