@@ -8,19 +8,17 @@ const displayData = [];
 const roundDisplays = store.getRoundDisplays();
 const roundHistory = store.getRoundHistory();
 
-for (let i = 0; i < roundHistory.length; i++) {
+for(let i = 0; i < roundHistory.length; i++) {
     const selected = roundHistory[i];
-    const id = selected.id;
     const quant = selected.quantity;
     pickData.push(quant);
 }
-for (let i = 0; i < roundDisplays.length; i++) {
+for(let i = 0; i < roundDisplays.length; i++) {
     const selected = roundDisplays[i];
     const displays = selected.displays;
     productLabels.push(selected.id);
     displayData.push(displays);
 }
-
 const roundResults = new Chart(roundCtx, {
     type: 'bar',
     data: {
@@ -62,13 +60,12 @@ const allTimeDisplayData = [];
 const allTimeHistory = store.getAllTimeHistory();
 const allTimeDisplays = store.getAllTimeDisplays();
 
-for (let j = 0; j < allTimeHistory.length; j++) {
+for(let j = 0; j < allTimeHistory.length; j++) {
     const selected = allTimeHistory[j];
-    const id = selected.id;
     const quant = selected.quantity;
     allTimePickData.push(quant);
 }
-for (let i = 0; i < allTimeDisplays.length; i++) {
+for(let i = 0; i < allTimeDisplays.length; i++) {
     const selected = allTimeDisplays[i];
     const displays = selected.displays;
     allTimeProductLabels.push(selected.id);
@@ -95,8 +92,8 @@ const allTimeResults = new Chart(allTimeCtx, {
     },
     options: {
         scales: {
-            xAxes: [{ stacked: true },{stacked: true, display: false}],
-            yAxes: [{ ticks: {beginAtZero: true }}]
+            xAxes: [{ stacked: true }, { stacked: true, display: false }],
+            yAxes: [{ ticks: { beginAtZero: true } }]
         }
     }
 });
