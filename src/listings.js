@@ -1,5 +1,4 @@
 import { getRandomInt } from './util.js';
-import store from './store.js';
 
 class Listings {
     constructor(products) {
@@ -29,29 +28,28 @@ class Listings {
 
     removeItemById(productID) {
         const list = this.list;
-        for (let i = 0; i < list.length; i++) {
+        for(let i = 0; i < list.length; i++) {
             const product = list[i];
-            if (product.id === productID) {
+            if(product.id === productID) {
                 list.splice(i, 1);
-                return
+                return;
             }
         }
     }
 
     removeItems(array) {
         const list = this.list;
-        for (let i = 0; i < array.length; i++) {
-            const pulled = array [i];
-            for (let k = 0; k < list.length; k++){
+        for(let i = 0; i < array.length; i++) {
+            const pulled = array[i];
+            for(let k = 0; k < list.length; k++) {
                 const match = list[k];
-                if(pulled === match){
-                    list.splice(k,1);
+                if(pulled === match) {
+                    list.splice(k, 1);
                 }
             }
         }
         return;
     }
-
 }
 
 export default Listings;

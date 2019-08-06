@@ -18,7 +18,7 @@ store.clearRoundData();
 
 renderItems();
 
-leftButton.addEventListener('click', handleUserChoice); 
+leftButton.addEventListener('click', handleUserChoice);
 
 centerButton.addEventListener('click', handleUserChoice);
 
@@ -45,9 +45,9 @@ function chooseNewItems(oldItems) {
 function displayChosenItems(chosenItems) {
     imageLeft.src = chosenItems[0].image;
     leftButton.value = chosenItems[0].id;
-    imageCenter.src = chosenItems[1].image
+    imageCenter.src = chosenItems[1].image;
     centerButton.value = chosenItems[1].id;
-    imageRight.src = chosenItems[2].image
+    imageRight.src = chosenItems[2].image;
     rightButton.value = chosenItems[2].id;
 }
 
@@ -58,7 +58,7 @@ function renderItems() {
 }
 
 function buttonDisableCheck(turns, turnTotal) {
-    if (turns === turnTotal) {
+    if(turns === turnTotal) {
         leftButton.disabled = true;
         centerButton.disabled = true;
         rightButton.disabled = true;
@@ -67,5 +67,3 @@ function buttonDisableCheck(turns, turnTotal) {
         return;
     }
 }
-
-

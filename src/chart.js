@@ -36,7 +36,6 @@ const roundResults = new Chart(roundCtx, {
                 backgroundColor: '#D6E9C6'
             }
         ]
-
     },
     options: {
         responsive: true,
@@ -89,7 +88,6 @@ const allTimeResults = new Chart(allTimeCtx, {
                 backgroundColor: '#D6E9C6'
             }
         ]
-
     },
     options: {
         scales: {
@@ -98,4 +96,3 @@ const allTimeResults = new Chart(allTimeCtx, {
         }
     }
 });
-
