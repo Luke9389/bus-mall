@@ -1,3 +1,3 @@
-export function getRandomInt(n){
-    return Math.floor(Math.random()*(n));
+export function getRandomInt(n) {
+    return Math.floor(Math.random() * (n));
 }
