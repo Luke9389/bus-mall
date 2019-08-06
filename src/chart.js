@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import store from './store.js';
 
 const roundCtx = document.getElementById('round-results').getContext('2d');
